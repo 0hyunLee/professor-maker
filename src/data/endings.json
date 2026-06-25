@@ -1,90 +1,640 @@
 {
   "endings": [
     {
+      "id": "distinguished",
+      "label": "석학교수 (Distinguished Professor)",
+      "icon": "🎓",
+      "tier": "true",
+      "conditions": { "research": 98, "english": 70, "network": 70, "mental": 50 },
+      "terminalPriority": 0,
+      "description": "학계가 당신의 이름을 교과서에 박았다. 이제 당신이 인용되는 쪽이다."
+    },
+    {
+      "id": "young_pi",
+      "label": "최연소 교수 임용",
+      "icon": "👶",
+      "tier": "true",
+      "conditions": { "research": 90, "mental": 60, "english": 55 },
+      "terminalPriority": 0,
+      "description": "역대 최연소 임용. 축하 메일 사이에 선배들의 복잡한 표정이 섞여 있다."
+    },
+    {
+      "id": "star_prof",
+      "label": "스타 교수",
+      "icon": "🌟",
+      "tier": "true",
+      "conditions": { "research": 95, "network": 65, "english": 60 },
+      "terminalPriority": 0,
+      "description": "강연 섭외가 줄을 잇는다. 논문 인용수보다 유튜브 조회수가 먼저 올라간다."
+    },
+    {
       "id": "tenure",
       "label": "정교수 임용",
       "icon": "🏆",
       "tier": "true",
-      "conditions": {
-        "research": 85,
-        "english": 55,
-        "network": 45,
-        "mental": 30
-      },
+      "conditions": { "research": 85, "english": 55, "network": 45, "mental": 30 },
       "terminalPriority": 0,
       "description": "당신은 결국 해냈다. 연구실에 당신의 이름이 새겨진다."
     },
+
     {
-      "id": "postdoc",
-      "label": "박사후과정 (포닥)",
-      "icon": "📚",
-      "tier": "good",
-      "conditions": {
-        "research": 70,
-        "english": 25
-      },
+      "id": "startup_unicorn",
+      "label": "자퇴 후 유니콘 창업",
+      "icon": "🦄",
+      "tier": "secret",
+      "conditions": { "network": 60, "money": 5000000, "mental": 55 },
       "terminalPriority": 0,
-      "description": "포닥의 길로. 이번엔 미국이다. 다음엔 어디일까."
+      "description": "자퇴서와 사업자등록증을 맞바꿨다. 투자자들이 교수님보다 정중하다."
     },
     {
-      "id": "industry",
-      "label": "산업체 취업",
-      "icon": "💼",
-      "tier": "normal",
-      "conditions": {
-        "research": 30,
-        "english": 30,
-        "chores": 35
-      },
+      "id": "world_travel",
+      "label": "통장 털어 세계일주",
+      "icon": "🌍",
+      "tier": "secret",
+      "conditions": { "money": 3000000, "english": 50, "mental": 50 },
       "terminalPriority": 0,
-      "description": "양복을 입고 출근한다. 통장은 두꺼워졌고, 마음은 한결 가볍다."
+      "description": "졸업장 대신 여권에 도장을 모으기로 했다. 편도 비행기표는 의외로 가볍다."
     },
     {
-      "id": "lecturer",
-      "label": "시간강사",
-      "icon": "🏫",
-      "tier": "bittersweet",
-      "conditions": {
-        "research": 40,
-        "network": 10
-      },
+      "id": "lotte_world",
+      "label": "휴학하고 롯데월드 취업",
+      "icon": "🎢",
+      "tier": "secret",
+      "conditions": { "research_max": 30, "mental": 55, "stamina": 55 },
       "terminalPriority": 0,
-      "description": "시간강사의 강의실. 학생들의 눈빛이 어딘가 익숙하다."
+      "description": "휴학원을 내고 어트랙션 안전요원이 됐다. 매일 비명소리를 듣지만, 이건 행복한 비명이다. 교수님 카톡은 무음으로 해뒀다."
     },
     {
-      "id": "convenience_store",
-      "label": "자퇴 후 편의점 알바",
-      "icon": "🏪",
-      "tier": "bad",
-      "conditions": {
-        "mental_max": 8
-      },
-      "terminalPriority": 2,
-      "description": "자퇴서를 냈다. 야간 편의점의 형광등이 밝다. 박수받는 자퇴였다. 어쩌면 이게 더 평화로울지도."
-    },
-    {
-      "id": "infinite_hiatus",
-      "label": "무한 휴학",
-      "icon": "🛏️",
-      "tier": "hidden",
-      "conditions": {
-        "mental_max": 15,
-        "stamina_max": 5
-      },
-      "terminalPriority": 1,
-      "description": "휴학원을 냈다. 다음 학기에 돌아온다고 했다. 그게 3년 전이다."
+      "id": "youtuber",
+      "label": "인기 과학 유튜버",
+      "icon": "📹",
+      "tier": "secret",
+      "conditions": { "network": 55, "english": 40, "mental": 55 },
+      "terminalPriority": 0,
+      "description": "구독자 50만. '대학원 들어가지 마세요' 영상이 떡상했다. 모순이지만 통장은 두껍다."
     },
     {
       "id": "emigration",
       "label": "해외 이민",
       "icon": "✈️",
       "tier": "secret",
-      "conditions": {
-        "english": 55,
-        "money": 1000000
-      },
+      "conditions": { "english": 55, "money": 1000000 },
       "terminalPriority": 0,
       "description": "비행기 표를 끊었다. 편도다. 한국 학계여, 안녕."
+    },
+    {
+      "id": "coin_rich",
+      "label": "코인 전업 떡상",
+      "icon": "🪙",
+      "tier": "secret",
+      "conditions": { "money": 9000000 },
+      "terminalPriority": 0,
+      "description": "지도교수에게 'FIRE'를 선언했다. 출처는 차마 밝히지 못한 밈코인이다."
+    },
+    {
+      "id": "monk",
+      "label": "출가",
+      "icon": "🧘",
+      "tier": "secret",
+      "conditions": { "mental": 60, "research_max": 35, "money_max": 200000 },
+      "terminalPriority": 0,
+      "description": "산속 절로 들어갔다. 여기엔 리비전 요청도, 디펜스도 없다. 목탁 소리가 평화롭다."
+    },
+    {
+      "id": "novelist",
+      "label": "등단 소설가",
+      "icon": "✍️",
+      "tier": "secret",
+      "conditions": { "mental": 55, "english_max": 45, "research_max": 45 },
+      "terminalPriority": 0,
+      "description": "대학원 생활을 소설로 썼다. 장르는 공포. 평론가들은 '과장이 심하다'고 했다. 과장이 아니었다."
+    },
+
+    {
+      "id": "professor_abroad",
+      "label": "해외 대학 교수",
+      "icon": "🌐",
+      "tier": "good",
+      "conditions": { "research": 75, "english": 65, "network": 50 },
+      "terminalPriority": 0,
+      "description": "영어로 강의하는 교수가 됐다. 발음 지적은 이제 안 받는다. 내가 한다."
+    },
+    {
+      "id": "ai_researcher",
+      "label": "빅테크 AI 연구원",
+      "icon": "🤖",
+      "tier": "good",
+      "conditions": { "research": 70, "english": 50, "mental": 40 },
+      "terminalPriority": 0,
+      "description": "빅테크 AI 랩에 입성했다. 당신의 모델이 당신보다 똑똑해지는 걸 매일 지켜본다."
+    },
+    {
+      "id": "quant",
+      "label": "금융 퀀트",
+      "icon": "📈",
+      "tier": "good",
+      "conditions": { "research": 65, "english": 45, "mental": 40 },
+      "terminalPriority": 0,
+      "description": "여의도로 갔다. 미분방정식이 연봉이 되는 곳. 논문보다 변동성이 무섭다."
+    },
+    {
+      "id": "pharma",
+      "label": "제약회사 연구원",
+      "icon": "💊",
+      "tier": "good",
+      "conditions": { "research": 60, "english": 45, "stamina": 40 },
+      "terminalPriority": 0,
+      "description": "신약 파이프라인에 당신의 이름이 올랐다. 임상 통과까지 10년, 인내는 대학원에서 배웠다."
+    },
+    {
+      "id": "national_lab",
+      "label": "국책연구소 정규직",
+      "icon": "🏛️",
+      "tier": "good",
+      "conditions": { "research": 60, "chores": 40, "network": 35 },
+      "terminalPriority": 0,
+      "description": "출연연 정규직 배지를 받았다. 정년이 보장된 연구라니, 아직도 실감이 안 난다."
+    },
+    {
+      "id": "data_scientist",
+      "label": "데이터 사이언티스트",
+      "icon": "💻",
+      "tier": "good",
+      "conditions": { "research": 55, "english": 40, "network": 30 },
+      "terminalPriority": 0,
+      "description": "캐글 그랜드마스터. 이제 p값 대신 KPI를 본다. 둘 다 사람을 괴롭히는 건 똑같다."
+    },
+    {
+      "id": "corp_research",
+      "label": "대기업 연구소",
+      "icon": "🔬",
+      "tier": "good",
+      "conditions": { "research": 60, "english": 40 },
+      "terminalPriority": 0,
+      "description": "대기업 연구소 사원증을 받았다. 논문 대신 특허를, 교수 대신 팀장을 모신다."
+    },
+    {
+      "id": "consultant",
+      "label": "전략 컨설턴트",
+      "icon": "📊",
+      "tier": "good",
+      "conditions": { "network": 50, "english": 50, "mental": 45 },
+      "terminalPriority": 0,
+      "description": "맥킨지 명함을 팠다. 대학원에서 갈고닦은 PPT 장인 스킬이 드디어 빛을 본다."
+    },
+    {
+      "id": "patent_attorney",
+      "label": "변리사",
+      "icon": "⚖️",
+      "tier": "good",
+      "conditions": { "research": 55, "chores": 50 },
+      "terminalPriority": 0,
+      "description": "변리사 합격증을 손에 쥐었다. 남의 발명을 지켜주는 일도 꽤 보람있다."
+    },
+    {
+      "id": "semiconductor",
+      "label": "반도체 엔지니어",
+      "icon": "🔧",
+      "tier": "good",
+      "conditions": { "research": 55, "english": 35, "stamina": 45 },
+      "terminalPriority": 0,
+      "description": "클린룸 방진복을 입는다. 나노 단위로 먹고산다. 야근도 나노 단위는 아니다."
+    },
+    {
+      "id": "overseas_postdoc",
+      "label": "해외 포닥",
+      "icon": "🛫",
+      "tier": "good",
+      "conditions": { "research": 70, "english": 60 },
+      "terminalPriority": 0,
+      "description": "보스턴행 비행기에 올랐다. 겨울이 길다고 들었다. 연구실 불빛은 더 길겠지."
+    },
+    {
+      "id": "postdoc",
+      "label": "박사후과정 (포닥)",
+      "icon": "📚",
+      "tier": "good",
+      "conditions": { "research": 70, "english": 25 },
+      "terminalPriority": 0,
+      "description": "포닥의 길로. 이번엔 미국이다. 다음엔 어디일까."
+    },
+
+    {
+      "id": "civil_servant",
+      "label": "7급 공무원",
+      "icon": "🏤",
+      "tier": "normal",
+      "conditions": { "chores": 45, "mental": 40 },
+      "terminalPriority": 0,
+      "description": "9급 아니고 7급. 연구계획서 쓰던 실력으로 자소서를 썼더니 합격이었다."
+    },
+    {
+      "id": "public_corp",
+      "label": "공기업 입사",
+      "icon": "⚡",
+      "tier": "normal",
+      "conditions": { "chores": 45, "english": 30, "mental": 40 },
+      "terminalPriority": 0,
+      "description": "신의 직장에 들어갔다. 대학원 5년이 가산점 2점으로 환산됐다. 그래도 합격은 합격."
+    },
+    {
+      "id": "bank",
+      "label": "은행 취업",
+      "icon": "🏦",
+      "tier": "normal",
+      "conditions": { "english": 35, "chores": 40, "network": 30 },
+      "terminalPriority": 0,
+      "description": "안정적인 직장을 잡았다. 부모님이 이 결정을 가장 좋아하셨다."
+    },
+    {
+      "id": "teacher",
+      "label": "중등 교사 임용",
+      "icon": "🍎",
+      "tier": "normal",
+      "conditions": { "research": 35, "english": 30, "mental": 45 },
+      "terminalPriority": 0,
+      "description": "임용고시 합격. 이제 시험을 보는 쪽이 아니라 내는 쪽이다."
+    },
+    {
+      "id": "pharmacist",
+      "label": "약사 전향",
+      "icon": "⚕️",
+      "tier": "normal",
+      "conditions": { "research": 40, "chores": 45, "stamina": 35 },
+      "terminalPriority": 0,
+      "description": "약대로 편입해 약사가 됐다. 흰 가운 색깔만 같고, 퇴근 시간은 다르다."
+    },
+    {
+      "id": "accountant",
+      "label": "회계사 합격",
+      "icon": "🧮",
+      "tier": "normal",
+      "conditions": { "chores": 50, "mental": 40 },
+      "terminalPriority": 0,
+      "description": "회계사 시험에 붙었다. 숫자는 거짓말을 안 해서 좋다. 교수님과 달리."
+    },
+    {
+      "id": "game_dev",
+      "label": "게임 개발자",
+      "icon": "🎮",
+      "tier": "normal",
+      "conditions": { "research": 35, "mental": 45, "network": 30 },
+      "terminalPriority": 0,
+      "description": "게임 회사에 들어갔다. 알고 보니 대학원이 더 하드코어한 게임이었다."
+    },
+    {
+      "id": "marketer",
+      "label": "마케터 전직",
+      "icon": "📣",
+      "tier": "normal",
+      "conditions": { "network": 45, "english": 35, "mental": 40 },
+      "terminalPriority": 0,
+      "description": "마케팅으로 갔다. 논문 제목으로 어그로 끌던 실력, 어디 안 간다."
+    },
+    {
+      "id": "broadcast",
+      "label": "과학 커뮤니케이터",
+      "icon": "📺",
+      "tier": "normal",
+      "conditions": { "network": 40, "english": 40, "mental": 45 },
+      "terminalPriority": 0,
+      "description": "교양 프로 자문위원이 됐다. 카메라 앞에서 '박사'로 소개될 때마다 멋쩍다."
+    },
+    {
+      "id": "freelancer",
+      "label": "프리랜서 연구원",
+      "icon": "🧑‍💻",
+      "tier": "normal",
+      "conditions": { "research": 45, "english": 40, "network": 25 },
+      "terminalPriority": 0,
+      "description": "용역과 과제를 전전한다. 자유롭지만 4대보험은 없다. 자유의 대가다."
+    },
+    {
+      "id": "civil_research",
+      "label": "9급 연구직 공무원",
+      "icon": "📋",
+      "tier": "normal",
+      "conditions": { "chores": 40, "research": 30 },
+      "terminalPriority": 0,
+      "description": "연구직 공무원이 됐다. 칼퇴가 이렇게 달콤할 줄, 대학원 때는 몰랐다."
+    },
+    {
+      "id": "sw_developer",
+      "label": "SW 개발자",
+      "icon": "⌨️",
+      "tier": "normal",
+      "conditions": { "research": 40, "english": 35 },
+      "terminalPriority": 0,
+      "description": "네카라쿠배 중 한 곳에 입사했다. 깃허브 잔디가 논문 실적보다 푸르다."
+    },
+    {
+      "id": "patent_office",
+      "label": "특허사무소 명세사",
+      "icon": "📑",
+      "tier": "normal",
+      "conditions": { "research": 35, "chores": 45 },
+      "terminalPriority": 0,
+      "description": "남의 특허 명세서를 쓴다. 내 논문보다 훨씬 깔끔하게 써진다는 게 함정이다."
+    },
+    {
+      "id": "ngo",
+      "label": "NGO 활동가",
+      "icon": "🌱",
+      "tier": "normal",
+      "conditions": { "mental": 50, "english": 40, "money_max": 300000 },
+      "terminalPriority": 0,
+      "description": "비영리 단체로 갔다. 통장은 가볍지만 명분은 차고 넘친다."
+    },
+    {
+      "id": "tech_writer",
+      "label": "테크니컬 라이터",
+      "icon": "📝",
+      "tier": "normal",
+      "conditions": { "english": 45, "research": 30 },
+      "terminalPriority": 0,
+      "description": "논문 쓰던 손으로 매뉴얼을 쓴다. 적어도 여기엔 리젝이 없다."
+    },
+    {
+      "id": "startup_employee",
+      "label": "스타트업 합류",
+      "icon": "🚀",
+      "tier": "normal",
+      "conditions": { "network": 40, "mental": 40 },
+      "terminalPriority": 0,
+      "description": "스톡옵션을 받았다. 휴지가 될지 로또가 될지는 아무도 모른다. 또 도박이다."
+    },
+    {
+      "id": "sales",
+      "label": "영업직 전향",
+      "icon": "🤵",
+      "tier": "normal",
+      "conditions": { "network": 45, "mental": 45 },
+      "terminalPriority": 0,
+      "description": "연구는 접고 영업으로. 의외로 적성에 맞는다. 사람 만나는 게 이렇게 즐거웠다니."
+    },
+    {
+      "id": "family_business",
+      "label": "가업 승계",
+      "icon": "🏪",
+      "tier": "normal",
+      "conditions": { "money": 500000, "mental": 45 },
+      "terminalPriority": 0,
+      "description": "집안 사업을 물려받기로 했다. 박사 되는 것보다 사장 되는 게 빨랐다."
+    },
+    {
+      "id": "cafe_owner",
+      "label": "카페 창업",
+      "icon": "☕",
+      "tier": "normal",
+      "conditions": { "money": 600000, "mental": 45, "stamina": 40 },
+      "terminalPriority": 0,
+      "description": "퇴실하고 카페를 차렸다. 라떼 아트가 연구 그래프보다 예쁘게 나온다."
+    },
+    {
+      "id": "translator",
+      "label": "전문 번역가",
+      "icon": "🗣️",
+      "tier": "normal",
+      "conditions": { "english": 60 },
+      "terminalPriority": 0,
+      "description": "논문 번역으로 먹고산다. 남의 고통을 번역하는 일이지만, 내 고통보단 낫다."
+    },
+    {
+      "id": "office_worker",
+      "label": "평범한 회사원",
+      "icon": "🏢",
+      "tier": "normal",
+      "conditions": { "research": 25 },
+      "terminalPriority": 0,
+      "description": "그냥 회사에 들어갔다. 대학원은 이력서의 한 줄이 됐다. 그걸로 충분하다."
+    },
+    {
+      "id": "industry",
+      "label": "산업체 취업",
+      "icon": "💼",
+      "tier": "normal",
+      "conditions": { "research": 30, "english": 30, "chores": 35 },
+      "terminalPriority": 0,
+      "description": "양복을 입고 출근한다. 통장은 두꺼워졌고, 마음은 한결 가볍다."
+    },
+
+    {
+      "id": "lab_lifer",
+      "label": "랩에 눌러앉음",
+      "icon": "🏚️",
+      "tier": "bittersweet",
+      "conditions": { "network": 45, "chores": 55, "research_max": 50 },
+      "terminalPriority": 0,
+      "description": "졸업은 안 했지만 랩에선 터줏대감이다. 신입들이 당신을 '선생님'이라 부른다."
+    },
+    {
+      "id": "visiting",
+      "label": "객원 연구원",
+      "icon": "🚪",
+      "tier": "bittersweet",
+      "conditions": { "research": 50, "english": 40, "network_max": 20 },
+      "terminalPriority": 0,
+      "description": "이 대학 저 대학 객원으로 떠돈다. 소속이 매년 바뀐다. 명함만 부지런하다."
+    },
+    {
+      "id": "textbook_author",
+      "label": "교재 집필자",
+      "icon": "📖",
+      "tier": "bittersweet",
+      "conditions": { "research": 50, "english": 35, "chores": 40 },
+      "terminalPriority": 0,
+      "description": "전공 교재를 쓴다. 인세는 한 학기 커피값. 그래도 표지에 내 이름이 박힌다."
+    },
+    {
+      "id": "journal_editor",
+      "label": "학술지 편집간사",
+      "icon": "📰",
+      "tier": "bittersweet",
+      "conditions": { "research": 40, "chores": 50, "english": 35 },
+      "terminalPriority": 0,
+      "description": "남의 논문을 다듬는다. 정작 내 논문은 아직 서랍 속에 잠들어 있다."
+    },
+    {
+      "id": "admissions_consultant",
+      "label": "입시 컨설턴트",
+      "icon": "🎯",
+      "tier": "bittersweet",
+      "conditions": { "network": 40, "chores": 40, "mental": 40 },
+      "terminalPriority": 0,
+      "description": "남의 대학원 입학을 돕는다. 정작 본인은 못 나왔다는 건 비밀이다."
+    },
+    {
+      "id": "online_lecturer",
+      "label": "인강 강사",
+      "icon": "💡",
+      "tier": "bittersweet",
+      "conditions": { "research": 45, "network": 20, "english": 30 },
+      "terminalPriority": 0,
+      "description": "인강 1타를 노린다. 발표 지옥에서 단련된 강의력만큼은 진짜다."
+    },
+    {
+      "id": "research_intern",
+      "label": "영구 연구 인턴",
+      "icon": "🔁",
+      "tier": "bittersweet",
+      "conditions": { "research": 40, "chores": 35, "money_max": 200000 },
+      "terminalPriority": 0,
+      "description": "정규직 전환은 늘 '다음 분기'다. 그 분기는 4년째 오지 않고 있다."
+    },
+    {
+      "id": "adjunct",
+      "label": "비정규 연구교수",
+      "icon": "🧑‍🏫",
+      "tier": "bittersweet",
+      "conditions": { "research": 55, "mental_max": 45 },
+      "terminalPriority": 0,
+      "description": "계약직 연구교수. 2년마다 이력서를 갱신한다. 짐은 늘 반쯤 싸여 있다."
+    },
+    {
+      "id": "eternal_ta",
+      "label": "만년 조교",
+      "icon": "🪑",
+      "tier": "bittersweet",
+      "conditions": { "chores": 70, "research_max": 45 },
+      "terminalPriority": 0,
+      "description": "10년째 조교다. 교수님은 당신 없이 못 산다. 바로 그게 문제다."
+    },
+    {
+      "id": "lab_manager",
+      "label": "랩 매니저",
+      "icon": "🔑",
+      "tier": "bittersweet",
+      "conditions": { "chores": 65, "network": 40 },
+      "terminalPriority": 0,
+      "description": "연구는 접고 랩 살림을 맡았다. 장비 견적 뽑는 일의 신이 됐다."
+    },
+    {
+      "id": "eternal_phd",
+      "label": "만년 박사과정",
+      "icon": "♾️",
+      "tier": "bittersweet",
+      "conditions": { "research": 45, "mental_max": 40 },
+      "terminalPriority": 0,
+      "description": "수료만 5년째. '곧 졸업합니다'가 어느새 입버릇이 됐다."
+    },
+    {
+      "id": "lecturer",
+      "label": "시간강사",
+      "icon": "🏫",
+      "tier": "bittersweet",
+      "conditions": { "research": 40, "network": 10 },
+      "terminalPriority": 0,
+      "description": "시간강사의 강의실. 학생들의 눈빛이 어딘가 익숙하다."
+    },
+
+    {
+      "id": "health_quit",
+      "label": "건강 악화로 중도포기",
+      "icon": "🤒",
+      "tier": "bad",
+      "conditions": { "stamina_max": 10, "mental_max": 20 },
+      "terminalPriority": 0,
+      "description": "의사가 그만두라고 했다. 처음으로 누군가 진심으로 날 걱정해줬다. 그게 의사였다."
+    },
+    {
+      "id": "gosi_pyein",
+      "label": "고시 폐인",
+      "icon": "📚",
+      "tier": "bad",
+      "conditions": { "research_max": 25, "mental_max": 30, "money_max": 100000 },
+      "terminalPriority": 0,
+      "description": "행시로 갈아탔다. 그게 5년 전이다. 신림동 고시원의 벽지 무늬를 다 외웠다."
+    },
+    {
+      "id": "ghosted",
+      "label": "랩 탈주 (잠수)",
+      "icon": "👻",
+      "tier": "bad",
+      "conditions": { "mental_max": 25, "network_max": 15 },
+      "terminalPriority": 0,
+      "description": "어느 날 연구실에 안 나갔다. 아무도 찾지 않았다. 그게 더 슬펐다."
+    },
+    {
+      "id": "debt",
+      "label": "빚더미",
+      "icon": "💸",
+      "tier": "bad",
+      "conditions": { "money_max": 0, "mental_max": 40 },
+      "terminalPriority": 0,
+      "description": "학자금에 생활비 대출까지. 졸업장보다 빚이 먼저 졸업했다."
+    },
+    {
+      "id": "dropout",
+      "label": "자퇴",
+      "icon": "📤",
+      "tier": "bad",
+      "conditions": { "research_max": 20, "mental_max": 35 },
+      "terminalPriority": 0,
+      "description": "자퇴서에 사인했다. 후련함과 패배감이 정확히 반반이다."
+    },
+    {
+      "id": "collapse_hospital",
+      "label": "과로로 입원",
+      "icon": "🏥",
+      "tier": "bad",
+      "conditions": { "stamina_max": 3 },
+      "terminalPriority": 2,
+      "description": "몸이 먼저 파업을 선언했다. 링거를 꽂고서야 처음으로 누웠다."
+    },
+    {
+      "id": "burnout_er",
+      "label": "번아웃 응급실",
+      "icon": "🚑",
+      "tier": "bad",
+      "conditions": { "mental_max": 5 },
+      "terminalPriority": 3,
+      "description": "쓰러졌다. 눈을 뜨니 흰 천장이 익숙하다. 일단은, 살고 보자."
+    },
+    {
+      "id": "convenience_store",
+      "label": "자퇴 후 편의점 알바",
+      "icon": "🏪",
+      "tier": "bad",
+      "conditions": { "mental_max": 8 },
+      "terminalPriority": 1,
+      "description": "자퇴서를 냈다. 야간 편의점의 형광등이 밝다. 어쩌면 이게 더 평화로울지도."
+    },
+
+    {
+      "id": "return_home",
+      "label": "낙향",
+      "icon": "🚌",
+      "tier": "hidden",
+      "conditions": { "research_max": 15, "mental_max": 25, "money_max": 50000 },
+      "terminalPriority": 0,
+      "description": "짐을 싸 고향으로 내려갔다. 부모님은 아무것도 묻지 않으셨다. 그게 가장 미안했다."
+    },
+    {
+      "id": "reset_life",
+      "label": "인생 리셋 (반수)",
+      "icon": "🔄",
+      "tier": "hidden",
+      "conditions": { "research_max": 20, "mental": 40, "stamina": 40 },
+      "terminalPriority": 0,
+      "description": "다 접고 의대 반수를 시작했다. 스물여섯, 늦지 않았다고 스스로를 다독인다."
+    },
+    {
+      "id": "disappear",
+      "label": "증발",
+      "icon": "🌫️",
+      "tier": "hidden",
+      "conditions": { "mental_max": 3, "stamina_max": 3 },
+      "terminalPriority": 1,
+      "description": "어느 날 조용히 사라졌다. SNS도 끊겼다. 부디 어딘가에서 잘 지내길."
+    },
+    {
+      "id": "infinite_hiatus",
+      "label": "무한 휴학",
+      "icon": "🛏️",
+      "tier": "hidden",
+      "conditions": { "mental_max": 15, "stamina_max": 5 },
+      "terminalPriority": 1,
+      "description": "휴학원을 냈다. 다음 학기에 돌아온다고 했다. 그게 3년 전이다."
     }
   ]
 }

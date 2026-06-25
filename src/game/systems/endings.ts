@@ -18,14 +18,18 @@ import type { Stats } from './stats';
  * 핵심: industry(normal=3)가 lecturer(bittersweet=4)보다 우선 평가되어야 함.
  */
 const TIER_PRIORITY: Record<string, number> = {
-  true: 0,        // 정교수 (최우선)
-  secret: 1,      // 해외이민
-  good: 2,        // 포닥
-  normal: 3,      // 산업체
-  bittersweet: 4,  // 시간강사
-  bad: 5,         // 자퇴 (즉시 종료)
-  hidden: 6,      // 무한휴학 (즉시 종료)
+  true: 0,         // 학계 정점 (정교수·석학)
+  secret: 1,       // 특이/탈출 성공 (이민·롯데월드·코인부자)
+  good: 2,         // 좋은 학계·전문직 (포닥·대기업연구소)
+  bittersweet: 3,  // 학계 림보 — 남았지만 애매 (시간강사·만년조교)
+  normal: 4,       // 학계 떠난 평범한 직업 (산업체·공무원)
+  bad: 5,          // 붕괴 (자퇴·번아웃)
+  hidden: 6,       // 즉시 붕괴 (무한휴학·잠적)
 };
+// 70개 엔딩 확장(회의록 #022): bittersweet > normal 로 조정.
+// 이유: '학계에 남은 애매한 결말'은 '학계를 떠난 평범한 직업'보다, 본인이 학계
+// 조건(높은 연구력 등)을 충족했을 때 우선해야 자연스럽다. 이렇게 해야 광범위한
+// normal catch-all 엔딩이 림보 엔딩들을 통째로 가리지 않는다.
 
 function meets(stats: Stats, conditions: Record<string, number>): boolean {
   for (const [key, value] of Object.entries(conditions)) {
@@ -47,9 +51,16 @@ export function determineEnding(stats: Stats): EndingDef {
     // fallback — 시간강사
     return ENDINGS.find((e) => e.id === 'lecturer') ?? ENDINGS[0];
   }
-  matched.sort(
-    (a, b) => (TIER_PRIORITY[a.tier] ?? 99) - (TIER_PRIORITY[b.tier] ?? 99)
-  );
+  matched.sort((a, b) => {
+    const tierDiff =
+      (TIER_PRIORITY[a.tier] ?? 99) - (TIER_PRIORITY[b.tier] ?? 99);
+    if (tierDiff !== 0) return tierDiff;
+    // 같은 tier 내에서는 조건이 더 구체적인(조건 수 많은) 엔딩 우선.
+    // 70개 엔딩 확장 대응: 특화 엔딩이 일반 catch-all 엔딩을 이기도록.
+    return (
+      Object.keys(b.conditions).length - Object.keys(a.conditions).length
+    );
+  });
   return matched[0];
 }
 
