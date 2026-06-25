@@ -1,0 +1,12 @@
+node_modules
+dist
+dist-ssr
+*.local
+.vite
+.DS_Store
+*.log
+.env
+.env.local
+coverage
+.firebase
+.firebaserc

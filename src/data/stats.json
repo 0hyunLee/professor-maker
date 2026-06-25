@@ -1,0 +1,68 @@
+{
+  "stats": [
+    {
+      "id": "research",
+      "label": "연구력",
+      "icon": "🔬",
+      "min": 0,
+      "max": 100,
+      "start": 20,
+      "description": "논문 작성과 실험 능력. 엔딩 분기의 핵심."
+    },
+    {
+      "id": "stamina",
+      "label": "체력",
+      "icon": "💪",
+      "min": 0,
+      "max": 100,
+      "start": 60,
+      "description": "20 미만이면 모든 행동 효율 -30% (번아웃)."
+    },
+    {
+      "id": "mental",
+      "label": "멘탈",
+      "icon": "🧠",
+      "min": 0,
+      "max": 100,
+      "start": 70,
+      "description": "15 미만이면 행동 슬롯 1개가 강제 '멍때림'으로 치환."
+    },
+    {
+      "id": "network",
+      "label": "인맥",
+      "icon": "🤝",
+      "min": 0,
+      "max": 100,
+      "start": 15,
+      "description": "50 이상이면 교수 호출 이벤트 발생률 2배."
+    },
+    {
+      "id": "chores",
+      "label": "잡일숙련도",
+      "icon": "🪣",
+      "min": 0,
+      "max": 100,
+      "start": 10,
+      "description": "70 이상이면 교수 호감 +, 연구력 획득 -20% (조교화 함정)."
+    },
+    {
+      "id": "english",
+      "label": "영어",
+      "icon": "🌐",
+      "min": 0,
+      "max": 100,
+      "start": 30,
+      "description": "해외 학회·이민 엔딩 분기."
+    },
+    {
+      "id": "money",
+      "label": "돈",
+      "icon": "💰",
+      "min": 0,
+      "max": 99999999,
+      "start": 500000,
+      "unit": "원",
+      "description": "0원이면 강제 알바 이벤트, 편의점알바 엔딩 플래그."
+    }
+  ]
+}

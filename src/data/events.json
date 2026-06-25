@@ -1,0 +1,555 @@
+{
+  "events": [
+    {
+      "id": "EV_KAKAO_3AM",
+      "title": "새벽 3시, 교수님의 카톡",
+      "trigger": { "semester_min": 1, "stat": { "network": 20 }, "prob": 0.35 },
+      "text": "카톡 알림. '자네, 깨어있지?' 시계는 03:14.",
+      "choices": [
+        { "label": "'네 교수님!' 답장", "effect": { "mental": -10, "network": 5, "chores": 3 } },
+        { "label": "읽씹", "effect": { "mental": 3, "network": -8 }, "flag": "PROF_MAD" },
+        { "label": "폰 끄고 자기", "effect": { "stamina": 8, "mental": -15 }, "flag": "GUILT" }
+      ]
+    },
+    {
+      "id": "EV_PARENTS_CALL",
+      "title": "\"언제 졸업하니?\"",
+      "trigger": { "semester_min": 2, "prob": 0.4 },
+      "text": "엄마한테서 전화. '잘 지내니? 그… 언제 졸업한다고 했지?'",
+      "choices": [
+        { "label": "곧 졸업한다고 거짓말", "effect": { "mental": -12, "money": 100000 } },
+        { "label": "침묵", "effect": { "mental": -8 } },
+        { "label": "솔직히 운다", "effect": { "mental": -5, "money": 200000 }, "flag": "PARENTS_KNOW" }
+      ]
+    },
+    {
+      "id": "EV_SUNBAE_ESCAPE",
+      "title": "선배의 도망",
+      "trigger": { "semester_min": 3, "prob": 0.25 },
+      "text": "박사 5년차 선배가 어제부로 잠적. 그의 일이 자네에게로.",
+      "choices": [
+        { "label": "추적 시도", "effect": { "stamina": -10, "mental": -5, "network": 3 } },
+        { "label": "축하한다", "effect": { "mental": 10, "chores": 5 } },
+        { "label": "인수인계 떠안기", "effect": { "research": 5, "chores": 15, "mental": -10 } }
+      ]
+    },
+    {
+      "id": "EV_AI_SCANDAL",
+      "title": "AI 논문 스캔들",
+      "trigger": { "semester_min": 4, "stat": { "research": 40 }, "prob": 0.2 },
+      "text": "옆 랩에서 ChatGPT로 논문 쓴 게 들통남. 우리 랩도 조사 들어옴.",
+      "choices": [
+        { "label": "자백", "effect": { "research": -10, "mental": -5, "network": -10 } },
+        { "label": "은폐", "effect": { "mental": -15 }, "flag": "SCANDAL_HIDDEN" },
+        { "label": "교수 탓", "effect": { "network": -20 }, "flag": "PROF_MAD" }
+      ]
+    },
+    {
+      "id": "EV_LAB_FRIDGE",
+      "title": "랩 냉장고의 정체불명 통",
+      "trigger": { "semester_min": 1, "prob": 0.3 },
+      "text": "라벨이 없다. 날짜는 2011년. 교수님 것일 수도 있다.",
+      "choices": [
+        { "label": "버린다", "effect": { "stamina": 2 }, "flag": "FRIDGE_CLEANED" },
+        { "label": "먹는다", "effect": { "stamina": -20, "mental": 5 } },
+        { "label": "실험재료로 쓴다", "effect": { "research": 8, "mental": -3 } }
+      ]
+    },
+    {
+      "id": "EV_MT_GUITAR",
+      "title": "MT에서 교수님이 기타를 꺼냈다",
+      "trigger": { "semester_min": 1, "prob": 0.15 },
+      "text": "교수님이 통기타를 들고 나타났다. '너희도 한 곡 할래?'",
+      "choices": [
+        { "label": "떼창", "effect": { "mental": 5, "network": 10, "chores": 3 } },
+        { "label": "탈출", "effect": { "stamina": 5, "network": -5 } },
+        { "label": "녹음한다", "effect": { "mental": 3 }, "flag": "GUITAR_RECORDING" }
+      ]
+    },
+    {
+      "id": "EV_PRINTER_JAM",
+      "title": "학회 전날 프린터 고장",
+      "trigger": { "semester_min": 2, "prob": 0.3 },
+      "text": "내일 발표인데 프린터가 죽었다. 근처 PC방까지 30분.",
+      "choices": [
+        { "label": "밤새 수리", "effect": { "stamina": -15, "research": 5 } },
+        { "label": "PC방 원정", "effect": { "stamina": -5, "money": -10000 } },
+        { "label": "포기", "effect": { "mental": -10 }, "flag": "PRESENTATION_FAIL" }
+      ]
+    },
+    {
+      "id": "EV_SEMINAR_SLEEP",
+      "title": "세미나 중 코골이 1등",
+      "trigger": { "semester_min": 1, "prob": 0.25 },
+      "text": "옆 랩 세미나 중 졸았다. 내 코골이가 강의실을 울렸다.",
+      "choices": [
+        { "label": "정중히 사과", "effect": { "mental": -3, "network": 2 } },
+        { "label": "아픈 척", "effect": { "mental": -5 } },
+        { "label": "질문으로 역공", "effect": { "research": 5, "network": 5, "mental": 3 } }
+      ]
+    },
+    {
+      "id": "EV_REVIEWER_2",
+      "title": "Reviewer 2의 \"This is trivial\"",
+      "trigger": { "semester_min": 4, "stat": { "research": 50 }, "prob": 0.4 },
+      "text": "리뷰어 2번이 한 줄로 거절했다. 'This is trivial.'",
+      "choices": [
+        { "label": "반박", "effect": { "research": 3, "mental": -10, "english": 5 } },
+        { "label": "수정", "effect": { "research": 5, "mental": -5 } },
+        { "label": "학술지 변경", "effect": { "research": -3, "mental": 2 } }
+      ]
+    },
+    {
+      "id": "EV_FREE_PIZZA",
+      "title": "옆 랩 세미나 공짜 피자 냄새",
+      "trigger": { "semester_min": 1, "prob": 0.5 },
+      "text": "복도에서 피자 냄새가 난다. 옆 랩 세미나에 공짜 피자가 있다.",
+      "choices": [
+        { "label": "잠입", "effect": { "stamina": 5, "money": 8000, "mental": 5 }, "flag": "PIZZA_NINJA" },
+        { "label": "정중히 요청", "effect": { "stamina": 3, "money": 8000, "network": 2 } },
+        { "label": "연구 계속", "effect": { "research": 5, "mental": -3 } }
+      ]
+    },
+    {
+      "id": "EV_PROF_WEDDING_MC",
+      "title": "교수 결혼식 사회 강요",
+      "trigger": { "semester_min": 2, "prob": 0.15 },
+      "text": "교수님이 부른다. '자네, 다음 달 결혼식 사회 좀 봐줄래?' 거절은… 가능한가?",
+      "choices": [
+        { "label": "'영광입니다'", "effect": { "network": 15, "mental": -10, "chores": 5 } },
+        { "label": "'논문 마감이라…'", "effect": { "network": -20, "stamina": 3 } },
+        { "label": "'축가도 부르겠습니다'", "effect": { "network": 25, "mental": -20, "chores": 3 }, "flag": "WEDDING_LEGEND" }
+      ]
+    },
+    {
+      "id": "EV_INSTA_COMPARE",
+      "title": "타대원생 인스타 비교",
+      "trigger": { "semester_min": 2, "prob": 0.4 },
+      "text": "친구 인스타에 새 글. '드디어 Nature 1저자 ✨' 좋아요 327개.",
+      "choices": [
+        { "label": "축하 댓글 달기", "effect": { "mental": -15, "network": 2 } },
+        { "label": "조용히 앱 끄기", "effect": { "mental": -8 } },
+        { "label": "친구한테 솔직히 카톡", "effect": { "mental": -5, "network": 5 } }
+      ]
+    },
+    {
+      "id": "EV_COAUTHOR_WAR",
+      "title": "공동 1저자 협상",
+      "trigger": { "semester_min": 5, "stat": { "research": 50 }, "prob": 0.3 },
+      "text": "동기와 같은 데이터로 논문을 썼다. 누가 1저자인가.",
+      "choices": [
+        { "label": "양보한다", "effect": { "research": 3, "mental": -10, "network": 5 } },
+        { "label": "2저자라도 받는다", "effect": { "research": 5, "mental": -5 } },
+        { "label": "교수님 중재 요청", "effect": { "research": 5, "network": -5, "chores": 3 } },
+        { "label": "관계를 터뜨린다", "effect": { "research": 8, "network": -30, "mental": -10 }, "flag": "BURNED_BRIDGE" }
+      ]
+    },
+    {
+      "id": "EV_REVISION_REJECT",
+      "title": "리비전 후 Reject",
+      "trigger": { "semester_min": 6, "stat": { "research": 60 }, "prob": 0.35 },
+      "text": "6개월 고친 논문이 최종 거절됐다. 'The contribution remains incremental.'",
+      "choices": [
+        { "label": "다른 학술지 즉시 투고", "effect": { "research": 3, "mental": -5, "english": 3 } },
+        { "label": "전면 재작성", "effect": { "research": 8, "stamina": -10, "mental": -10 } },
+        { "label": "프로젝트 폐기", "effect": { "research": -10, "mental": -20 }, "flag": "PROJECT_KILLED" }
+      ]
+    },
+    {
+      "id": "EV_LAB_NOTEBOOK_ROAST",
+      "title": "실험노트 굴욕",
+      "trigger": { "semester_min": 1, "prob": 0.25 },
+      "text": "교수님이 당신의 실험노트를 펼쳐 들고 한참을 본 뒤 말했다. '이거 학부생이 쓴 거냐?'",
+      "choices": [
+        { "label": "사과", "effect": { "mental": -15, "chores": 3 } },
+        { "label": "변명", "effect": { "mental": -10, "network": -5 } },
+        { "label": "각성", "effect": { "research": 8, "mental": -25 }, "flag": "ENLIGHTENED" }
+      ]
+    },
+    {
+      "id": "EV_DESK_HEADACHE",
+      "title": "책상 앞 두통",
+      "trigger": { "semester_min": 3, "prob": 0.35 },
+      "text": "오후 2시. 모니터 글자가 두 겹으로 보인다. 어제도 그랬고, 그제도 그랬다.",
+      "choices": [
+        { "label": "약 먹고 계속", "effect": { "stamina": -3, "mental": -3, "research": 3 } },
+        { "label": "30분 자고 일어남", "effect": { "stamina": 5, "mental": 3 } },
+        { "label": "무시", "effect": { "research": 4, "stamina": -8, "mental": -5 } }
+      ]
+    },
+    {
+      "id": "EV_HAND_TREMBLE",
+      "title": "손 떨림",
+      "trigger": { "semester_min": 5, "prob": 0.2 },
+      "text": "피펫을 잡았는데 손이 살짝 떨렸다. 처음 있는 일은 아니다.",
+      "choices": [
+        { "label": "병원 예약", "effect": { "money": -50000, "mental": 5, "stamina": 3 } },
+        { "label": "감춘다", "effect": { "mental": -10, "research": 2 }, "flag": "HIDING_SYMPTOM" },
+        { "label": "그냥 실험 계속", "effect": { "research": 5, "mental": -8 } }
+      ]
+    },
+    {
+      "id": "EV_NIGHT_SCROLL",
+      "title": "새벽 4시 무한 스크롤",
+      "trigger": { "semester_min": 2, "prob": 0.4 },
+      "text": "잠이 안 온다. 손가락이 알아서 트위터를 새로고침한다. 48번째.",
+      "choices": [
+        { "label": "폰을 멀리 던짐", "effect": { "stamina": 5, "mental": 2 } },
+        { "label": "계속 스크롤", "effect": { "stamina": -10, "mental": -8 } },
+        { "label": "일어나서 글 쓰기", "effect": { "research": 6, "stamina": -10, "mental": -3 } }
+      ]
+    },
+    {
+      "id": "EV_HUBAE_RESPECT",
+      "title": "후배의 한마디",
+      "trigger": { "semester_min": 4, "prob": 0.25 },
+      "text": "신입 후배가 조용히 말했다. '저는 선배 같은 사람이 되고 싶어요.'",
+      "choices": [
+        { "label": "솔직히 말림", "effect": { "mental": -5, "network": 5 } },
+        { "label": "어색하게 웃음", "effect": { "mental": -8, "network": 2 } },
+        { "label": "화장실로 도망", "effect": { "mental": -10, "stamina": -3 } }
+      ]
+    },
+    {
+      "id": "EV_DONGGI_GRADUATE",
+      "title": "동기 졸업식 초대장",
+      "trigger": { "semester_min": 6, "prob": 0.3 },
+      "text": "동기 졸업식 초대장이 왔다. 당신은 아직 8학기째다.",
+      "choices": [
+        { "label": "참석해서 박수", "effect": { "mental": -15, "network": 8, "money": -50000 } },
+        { "label": "축의금만 송금", "effect": { "mental": -8, "money": -100000, "network": 2 } },
+        { "label": "안 본 척", "effect": { "mental": -12, "network": -5 } }
+      ]
+    },
+    {
+      "id": "EV_PROF_SILENCE",
+      "title": "교수와의 3주 침묵",
+      "trigger": { "semester_min": 5, "stat": { "network": 30 }, "prob": 0.3 },
+      "text": "지난 미팅 이후 교수님이 말이 없다. 복도에서 마주쳐도 그냥 끄덕.",
+      "choices": [
+        { "label": "먼저 카톡", "effect": { "mental": -10, "network": 5, "chores": 3 } },
+        { "label": "기다림", "effect": { "mental": -8, "network": -3 } },
+        { "label": "정중한 메일", "effect": { "mental": -5, "network": 8, "english": 2 } }
+      ]
+    },
+    {
+      "id": "EV_PARENTS_REMIT_END",
+      "title": "송금이 멈춘 달",
+      "trigger": { "semester_min": 6, "prob": 0.25 },
+      "text": "이번 달엔 송금이 안 왔다. 엄마는 '이제 너도 다 컸지' 라고 했다.",
+      "choices": [
+        { "label": "알바 추가", "effect": { "stamina": -10, "mental": -5, "money": 300000, "research": -3 } },
+        { "label": "사실대로 말함", "effect": { "mental": -10, "money": 100000 } },
+        { "label": "괜찮은 척", "effect": { "mental": -15, "money": -50000 }, "flag": "MONEY_HIDDEN" }
+      ]
+    },
+    {
+      "id": "EV_CARD_BILL",
+      "title": "카드값 알림",
+      "trigger": { "semester_min": 3, "prob": 0.35 },
+      "text": "카드 명세서 알림. 결제 예정 금액이 통장보다 많다.",
+      "choices": [
+        { "label": "분납 신청", "effect": { "mental": -5, "money": -30000 } },
+        { "label": "현금서비스", "effect": { "mental": -10, "money": 200000 }, "flag": "CASH_ADVANCE" },
+        { "label": "부모님께 전화", "effect": { "mental": -15, "money": 200000 } }
+      ]
+    },
+    {
+      "id": "EV_CONF_FEE",
+      "title": "학회 등록비 70만원",
+      "trigger": { "semester_min": 4, "stat": { "research": 40 }, "prob": 0.3 },
+      "text": "학회 등록 마감 D-3. 등록비 70만원. 통장은 안 본 지 오래다.",
+      "choices": [
+        { "label": "등록", "effect": { "money": -700000, "research": 8, "english": 3, "network": 5 } },
+        { "label": "논문만 보내고 불참", "effect": { "research": 3, "mental": -5 } },
+        { "label": "포기", "effect": { "research": -5, "mental": -10 } }
+      ]
+    },
+    {
+      "id": "EV_SECOND_REJECT",
+      "title": "두 번째 \"We regret to inform you\"",
+      "trigger": { "semester_min": 7, "stat": { "research": 55 }, "prob": 0.35 },
+      "text": "같은 논문, 두 번째 거절. 메일 제목은 익숙해졌다.",
+      "choices": [
+        { "label": "즉시 다른 학술지", "effect": { "research": 4, "mental": -8, "english": 3 } },
+        { "label": "일주일 잠수", "effect": { "stamina": 8, "mental": -3, "research": -3 } },
+        { "label": "프로젝트 폐기", "effect": { "research": -10, "mental": -15 }, "flag": "PROJECT_KILLED" }
+      ]
+    },
+    {
+      "id": "EV_DEADLINE_OVERLAP",
+      "title": "마감 3개 동시",
+      "trigger": { "semester_min": 5, "stat": { "research": 40 }, "prob": 0.3 },
+      "text": "이번 주 마감: 학회 초록, 조교 채점, 교수님 자료 정리. 셋 다 금요일.",
+      "choices": [
+        { "label": "우선순위 정하고 실행", "effect": { "research": 6, "stamina": -10, "mental": -8, "chores": 5 } },
+        { "label": "다 시도", "effect": { "research": 4, "stamina": -15, "mental": -12, "chores": 8 } },
+        { "label": "하나만, 나머지 사과", "effect": { "research": 3, "mental": -5, "network": -5 } }
+      ]
+    },
+    {
+      "id": "EV_NATURE_HUBAE",
+      "title": "후배가 Nature 1저자",
+      "trigger": { "semester_min": 8, "prob": 0.2 },
+      "text": "랩 단톡방에 후배 이름. Nature 1저자. 학부생 때 들어온 그 후배.",
+      "choices": [
+        { "label": "진심 축하 댓글", "effect": { "mental": -15, "network": 5 } },
+        { "label": "조용히 단톡방 차단", "effect": { "mental": -8, "network": -8 } },
+        { "label": "혼자 술자리", "effect": { "stamina": -10, "mental": -5, "money": -30000 } }
+      ]
+    },
+    {
+      "id": "EV_HUBAE_GIMBAP",
+      "title": "후배가 사 준 김밥",
+      "trigger": { "semester_min": 3, "prob": 0.3 },
+      "text": "후배가 김밥 한 줄을 책상에 두고 갔다. 포스트잇: '점심 안 드셨죠.'",
+      "choices": [
+        { "label": "고맙다는 말을 잊었다", "effect": { "mental": 5, "stamina": 5 }, "flag": "GIMBAP_DEBT" },
+        { "label": "따라가서 인사", "effect": { "mental": 8, "network": 3, "stamina": 3 } },
+        { "label": "조용히 먹음", "effect": { "mental": 6, "stamina": 4 } }
+      ]
+    },
+    {
+      "id": "EV_OLD_FRIEND_TEXT",
+      "title": "오래된 친구의 카톡",
+      "trigger": { "semester_min": 4, "prob": 0.3 },
+      "text": "초등학교 동창. 8년 만이다. '잘 지내?' 한 줄.",
+      "choices": [
+        { "label": "솔직히 답함", "effect": { "mental": 5, "network": 2 } },
+        { "label": "잘 지낸다고 답함", "effect": { "mental": -3, "network": 1 } },
+        { "label": "안 답함", "effect": { "mental": -5 } }
+      ]
+    },
+    {
+      "id": "EV_LAB_CAT",
+      "title": "랩 건물 길고양이",
+      "trigger": { "semester_min": 1, "prob": 0.4 },
+      "text": "건물 뒤편에 회색 고양이가 앉아 있다. 당신을 본다.",
+      "choices": [
+        { "label": "사료 한 줌", "effect": { "mental": 8, "money": -3000 }, "flag": "CAT_FED" },
+        { "label": "사진만", "effect": { "mental": 5 } },
+        { "label": "지나친다", "effect": { "mental": -2, "research": 1 } }
+      ]
+    },
+    {
+      "id": "EV_CONF_WITH_PROF",
+      "title": "교수님과 함께 학회",
+      "trigger": { "semester_min": 4, "stat": { "research": 40 }, "prob": 0.25 },
+      "text": "교수님이 말했다. '이번 학회 같이 가지. 내가 항공편 알아볼게.' 3년 만에 처음 듣는 인정의 말.",
+      "choices": [
+        { "label": "감사히 수락", "effect": { "research": 10, "english": 8, "network": 15, "mental": 10, "stamina": -5 } },
+        { "label": "발표 준비에 집중", "effect": { "research": 15, "english": 5, "mental": -5, "stamina": -10 } },
+        { "label": "학회보다 논문이 급해요", "effect": { "research": 8, "network": -5, "mental": -3 } }
+      ]
+    },
+    {
+      "id": "EV_DONGGI_PROJECT",
+      "title": "동기들과 공동 프로젝트",
+      "trigger": { "semester_min": 3, "stat": { "network": 20 }, "prob": 0.3 },
+      "text": "동기 세 명이 말을 꺼냈다. '우리끼리 사이드 프로젝트 하나 해볼까? 너 코딩 잘하잖아.' 오랜만에 같이 무언가를 만드는 느낌.",
+      "choices": [
+        { "label": "함께하기", "effect": { "research": 8, "network": 12, "mental": 10, "stamina": -8 }, "flag": "SIDE_PROJECT" },
+        { "label": "아이디어만 참여", "effect": { "research": 5, "network": 5, "mental": 5 } },
+        { "label": "바빠서 패스", "effect": { "network": -5, "mental": -5 } }
+      ]
+    },
+    {
+      "id": "EV_PROF_PRAISE",
+      "title": "교수님의 칭찬",
+      "trigger": { "semester_min": 5, "stat": { "research": 60 }, "prob": 0.2 },
+      "text": "랩미팅 끝나고 교수님이 조용히 말했다. '이번 건 잘 썼어.' 교수님 입에서 '잘'이라는 글자가 나온 건 처음이다.",
+      "choices": [
+        { "label": "감사합니다 (눈물 참음)", "effect": { "mental": 20, "research": 5 } },
+        { "label": "더 할 수 있습니다", "effect": { "mental": 10, "research": 8, "chores": 3 } },
+        { "label": "어색하게 웃음", "effect": { "mental": 15 } }
+      ]
+    },
+    {
+      "id": "EV_SENIOR_ADVICE",
+      "title": "졸업한 선배의 전화",
+      "trigger": { "semester_min": 6, "prob": 0.25 },
+      "text": "졸업한 선배가 전화했다. '야, 힘들지? 나도 그 시기가 제일 힘들었어. 근데 끝이 보이기 시작하면 다르다.'",
+      "choices": [
+        { "label": "오래 통화", "effect": { "mental": 12, "network": 5, "stamina": -3 } },
+        { "label": "짧게 인사만", "effect": { "mental": 5, "network": 2 } },
+        { "label": "진로 상담 요청", "effect": { "mental": 8, "network": 8, "english": 2 } }
+      ]
+    },
+    {
+      "id": "EV_CONF_NETWORKING",
+      "title": "학회에서 만난 사람",
+      "trigger": { "semester_min": 5, "stat": { "english": 30 }, "prob": 0.2 },
+      "text": "학회 커피브레이크에서 외국인 연구자가 말을 걸었다. '너 포스터 봤어. 재밌더라.' 처음 듣는 영어 칭찬.",
+      "choices": [
+        { "label": "명함 교환 + 30분 대화", "effect": { "english": 8, "network": 10, "mental": 8, "research": 3 } },
+        { "label": "어색하게 웃고 도망", "effect": { "english": 3, "mental": -3 } },
+        { "label": "공동연구 제안", "effect": { "english": 10, "network": 15, "research": 8, "mental": 5 }, "flag": "INTL_COLLAB" }
+      ]
+    },
+    {
+      "id": "EV_DONGGI_DRINK",
+      "title": "동기와 밤새 이야기",
+      "trigger": { "semester_min": 3, "prob": 0.3 },
+      "text": "동기 한 명이 연구실에 혼자 남아있었다. '나 진짜 자퇴할까 고민 중이야.' 두 사람은 새벽까지 이야기했다.",
+      "choices": [
+        { "label": "이야기 들어줌", "effect": { "mental": 8, "network": 10, "stamina": -8 } },
+        { "label": "같이 울음", "effect": { "mental": 5, "network": 12, "stamina": -5 } },
+        { "label": "현실적 조언", "effect": { "mental": 3, "network": 8 } }
+      ]
+    },
+    {
+      "id": "EV_TA_STUDENT_THANKS",
+      "title": "수강생의 감사 메일",
+      "trigger": { "semester_min": 3, "stat": { "chores": 20 }, "prob": 0.3 },
+      "text": "'선생님 덕분에 이번 학기 A+ 받았습니다. 정말 감사합니다.' 학부생이 보낸 메일. '선생님'이라고 불렀다.",
+      "choices": [
+        { "label": "기분 좋게 답장", "effect": { "mental": 12, "chores": 3 } },
+        { "label": "그냥 기분이 좋다", "effect": { "mental": 10 } },
+        { "label": "나도 한때는 그랬지", "effect": { "mental": 8, "research": 2 } }
+      ]
+    },
+    {
+      "id": "EV_SEMESTER_EVAL",
+      "title": "학기말 평가",
+      "trigger": { "semester_min": 1, "prob": 0.9 },
+      "text": "학기가 끝났다. 교수님과 1:1 면담. '이번 학기 성과를 말해봐.'",
+      "choices": [
+        { "label": "자신 있게 발표", "effect": { "research": 5, "network": 5, "mental": -5 } },
+        { "label": "솔직히 부족했습니다", "effect": { "mental": -8, "network": 3 } },
+        { "label": "준비한 PPT를 보여드림", "effect": { "research": 8, "mental": -10, "chores": 3 } }
+      ]
+    },
+    {
+      "id": "EV_GRADUATION_DEFENSE",
+      "title": "졸업 디펜스",
+      "trigger": { "semester_min": 12, "stat": { "research": 60 }, "prob": 0.5 },
+      "text": "디펜스 날짜가 잡혔다. 교수 5명이 앉아 있다. 30분 발표, 40분 질의응답.",
+      "choices": [
+        { "label": "완벽하게 준비", "effect": { "research": 15, "english": 5, "stamina": -15, "mental": -10 } },
+        { "label": "적당히 준비", "effect": { "research": 8, "mental": -5 } },
+        { "label": "될 대로 되라", "effect": { "research": 3, "mental": -15 }, "flag": "DEFENSE_YOLO" }
+      ]
+    },
+    {
+      "id": "EV_PROF_RECOMMENDATION",
+      "title": "지도교수 추천서",
+      "trigger": { "semester_min": 8, "stat": { "research": 50, "network": 20 }, "prob": 0.3 },
+      "text": "교수님이 물었다. '추천서 써줄까? 어디 지원하려고?' 교수님이 먼저 물어본 건 처음이다.",
+      "choices": [
+        { "label": "포닥 지원이요", "effect": { "network": 12, "english": 5, "mental": 8 } },
+        { "label": "산업체 이직이요", "effect": { "network": 8, "chores": 3, "mental": 5 } },
+        { "label": "아직 결정 못 했어요", "effect": { "network": 5, "mental": -3 } }
+      ]
+    },
+    {
+      "id": "EV_LAB_HEAD_HANDOVER",
+      "title": "랩장 인수인계",
+      "trigger": { "semester_min": 6, "stat": { "chores": 30 }, "prob": 0.25 },
+      "text": "전 랩장이 졸업한다. 교수님이 말했다. '다음 랩장은 네가 해.' 거절은 가능한가?",
+      "choices": [
+        { "label": "수락 (책임감)", "effect": { "chores": 15, "network": 10, "mental": -10, "research": -5 } },
+        { "label": "정중히 거절", "effect": { "network": -8, "mental": 5 } },
+        { "label": "조건부 수락", "effect": { "chores": 8, "network": 5, "mental": -5 } }
+      ]
+    },
+    {
+      "id": "EV_POSTER_SESSION",
+      "title": "학회 포스터 세션",
+      "trigger": { "semester_min": 3, "stat": { "research": 30 }, "prob": 0.35 },
+      "text": "학회 포스터 세션. 2시간 동안 포스터 앞에 서서 설명한다. 3명이 왔다.",
+      "choices": [
+        { "label": "열정적으로 설명", "effect": { "research": 5, "english": 5, "network": 8, "stamina": -8 } },
+        { "label": "의무적으로 서 있음", "effect": { "research": 2, "network": 2, "mental": -3 } },
+        { "label": "관심 있는 사람과 깊게 대화", "effect": { "research": 8, "network": 12, "english": 3, "mental": 3 } }
+      ]
+    },
+    {
+      "id": "EV_PAPER_ACCEPTED",
+      "title": "논문 게재 확정",
+      "trigger": { "semester_min": 5, "stat": { "research": 55 }, "prob": 0.2 },
+      "text": "'We are pleased to inform you that your paper has been accepted.' 마지막 줄까지 세 번 읽었다.",
+      "choices": [
+        { "label": "소리 지름", "effect": { "mental": 25, "research": 10, "network": 5 } },
+        { "label": "조용히 울음", "effect": { "mental": 20, "research": 8 } },
+        { "label": "바로 다음 논문 시작", "effect": { "mental": 10, "research": 15, "stamina": -5 } }
+      ]
+    },
+    {
+      "id": "EV_BUDGET_AUDIT",
+      "title": "연구비 정산",
+      "trigger": { "semester_min": 4, "prob": 0.3 },
+      "text": "연구비 정산 기한 D-2. 영수증 83장을 분류해야 한다.",
+      "choices": [
+        { "label": "밤새 정산", "effect": { "stamina": -10, "mental": -8, "chores": 8, "money": 50000 } },
+        { "label": "후배에게 부탁", "effect": { "network": -3, "chores": 3, "mental": -3 } },
+        { "label": "대충 제출", "effect": { "chores": 2, "mental": -5 }, "flag": "SLOPPY_BUDGET" }
+      ]
+    },
+    {
+      "id": "EV_DREAM_DEFENSE",
+      "title": "꿈에서 디펜스",
+      "trigger": { "semester_min": 8, "prob": 0.2 },
+      "text": "꿈에서 졸업 디펜스를 했다. 교수 5명이 웃고 있었다. 일어나니 새벽 4시.",
+      "choices": [
+        { "label": "무시하고 다시 잔다", "effect": { "stamina": 5, "mental": -3 } },
+        { "label": "일어나서 논문 쓴다", "effect": { "research": 8, "stamina": -8, "mental": -5 } },
+        { "label": "일기에 적는다", "effect": { "mental": 5 } }
+      ]
+    },
+    {
+      "id": "EV_CAFE_SHUTDOWN",
+      "title": "단골 카페 폐업",
+      "trigger": { "semester_min": 3, "prob": 0.25 },
+      "text": "매일 가던 캠퍼스 앞 카페가 문을 닫았다. 여기서 논문 절반을 썼는데.",
+      "choices": [
+        { "label": "새 카페 찾기", "effect": { "mental": -5, "money": -5000 } },
+        { "label": "연구실에서만 작업", "effect": { "mental": -8, "research": 3 } },
+        { "label": "집에서 작업", "effect": { "mental": 3, "stamina": 5, "research": -2 } }
+      ]
+    },
+    {
+      "id": "EV_PROF_BOOK_GIFT",
+      "title": "교수님의 책 선물",
+      "trigger": { "semester_min": 6, "stat": { "research": 50 }, "prob": 0.15 },
+      "text": "교수님이 책 한 권을 건넸다. '이거 읽어봐. 내가 대학원생 때 가장 영향을 받았던 책이야.'",
+      "choices": [
+        { "label": "그날 밤 다 읽음", "effect": { "research": 10, "mental": 8, "stamina": -5 } },
+        { "label": "책장에 꽂아둠", "effect": { "mental": 3 } },
+        { "label": "감사 메일 보냄", "effect": { "network": 8, "mental": 5 } }
+      ]
+    },
+    {
+      "id": "EV_DONGGI_STARTUP",
+      "title": "동기의 창업 제안",
+      "trigger": { "semester_min": 7, "stat": { "network": 25 }, "prob": 0.2 },
+      "text": "동기가 진지한 표정으로 말했다. '나 자퇴하고 창업할 건데, 같이 할래?'",
+      "choices": [
+        { "label": "흔들린다", "effect": { "mental": -15, "network": 5 } },
+        { "label": "난 학위 마칠게", "effect": { "mental": 5, "research": 3 } },
+        { "label": "자세히 들어봄", "effect": { "network": 8, "mental": -5, "english": 3 } }
+      ]
+    },
+    {
+      "id": "EV_FIRST_CITATION",
+      "title": "첫 피인용",
+      "trigger": { "semester_min": 7, "stat": { "research": 60 }, "prob": 0.25 },
+      "text": "Google Scholar 알림. 누군가가 내 논문을 인용했다. 태어나서 처음. 인도 어딘가의 연구자.",
+      "choices": [
+        { "label": "스크린샷 찍어 보관", "effect": { "mental": 15, "research": 5 } },
+        { "label": "그 논문을 찾아 읽음", "effect": { "research": 10, "english": 5, "mental": 8 } },
+        { "label": "동기에게 자랑", "effect": { "mental": 10, "network": 3 } }
+      ]
+    },
+    {
+      "id": "EV_RAIN_WALK",
+      "title": "비 오는 날 캠퍼스",
+      "trigger": { "semester_min": 1, "prob": 0.35 },
+      "text": "비가 온다. 우산 없이 캠퍼스를 걷는다. 아무도 없다. 잠깐, 이게 나쁘지 않다.",
+      "choices": [
+        { "label": "천천히 걷는다", "effect": { "mental": 10, "stamina": -3 } },
+        { "label": "뛰어간다", "effect": { "stamina": 3, "mental": 2 } },
+        { "label": "벤치에 앉는다", "effect": { "mental": 15, "stamina": -5 } }
+      ]
+    }
+  ]
+}

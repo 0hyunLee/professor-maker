@@ -1,0 +1,90 @@
+{
+  "endings": [
+    {
+      "id": "tenure",
+      "label": "정교수 임용",
+      "icon": "🏆",
+      "tier": "true",
+      "conditions": {
+        "research": 85,
+        "english": 55,
+        "network": 45,
+        "mental": 30
+      },
+      "terminalPriority": 0,
+      "description": "당신은 결국 해냈다. 연구실에 당신의 이름이 새겨진다."
+    },
+    {
+      "id": "postdoc",
+      "label": "박사후과정 (포닥)",
+      "icon": "📚",
+      "tier": "good",
+      "conditions": {
+        "research": 70,
+        "english": 25
+      },
+      "terminalPriority": 0,
+      "description": "포닥의 길로. 이번엔 미국이다. 다음엔 어디일까."
+    },
+    {
+      "id": "industry",
+      "label": "산업체 취업",
+      "icon": "💼",
+      "tier": "normal",
+      "conditions": {
+        "research": 30,
+        "english": 30,
+        "chores": 35
+      },
+      "terminalPriority": 0,
+      "description": "양복을 입고 출근한다. 통장은 두꺼워졌고, 마음은 한결 가볍다."
+    },
+    {
+      "id": "lecturer",
+      "label": "시간강사",
+      "icon": "🏫",
+      "tier": "bittersweet",
+      "conditions": {
+        "research": 40,
+        "network": 10
+      },
+      "terminalPriority": 0,
+      "description": "시간강사의 강의실. 학생들의 눈빛이 어딘가 익숙하다."
+    },
+    {
+      "id": "convenience_store",
+      "label": "자퇴 후 편의점 알바",
+      "icon": "🏪",
+      "tier": "bad",
+      "conditions": {
+        "mental_max": 8
+      },
+      "terminalPriority": 2,
+      "description": "자퇴서를 냈다. 야간 편의점의 형광등이 밝다. 박수받는 자퇴였다. 어쩌면 이게 더 평화로울지도."
+    },
+    {
+      "id": "infinite_hiatus",
+      "label": "무한 휴학",
+      "icon": "🛏️",
+      "tier": "hidden",
+      "conditions": {
+        "mental_max": 15,
+        "stamina_max": 5
+      },
+      "terminalPriority": 1,
+      "description": "휴학원을 냈다. 다음 학기에 돌아온다고 했다. 그게 3년 전이다."
+    },
+    {
+      "id": "emigration",
+      "label": "해외 이민",
+      "icon": "✈️",
+      "tier": "secret",
+      "conditions": {
+        "english": 55,
+        "money": 1000000
+      },
+      "terminalPriority": 0,
+      "description": "비행기 표를 끊었다. 편도다. 한국 학계여, 안녕."
+    }
+  ]
+}

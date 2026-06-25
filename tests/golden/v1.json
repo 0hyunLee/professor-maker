@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "seed": 42,
+  "runs": 7000,
+  "hash": "bf5d8f486587092efe20130ee25b6173e8930edfd82d3a9aa86045f6079c06f7",
+  "endingDistribution": {
+    "postdoc": 2808,
+    "tenure": 350,
+    "emigration": 1842,
+    "convenience_store": 1064,
+    "infinite_hiatus": 936
+  },
+  "generatedAt": "2026-04-11T07:00:19.575Z"
+}

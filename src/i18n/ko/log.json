@@ -1,0 +1,5 @@
+{
+  "mental_break_override": "🧠 멘탈 붕괴: [{{action}}] 슬롯이 [멍때림]으로 대체되었습니다",
+  "event_trigger": "📌 {{title}}",
+  "event_choice": "📌 {{title}} → {{choice}}"
+}

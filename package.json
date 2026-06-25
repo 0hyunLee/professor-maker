@@ -1,0 +1,37 @@
+{
+  "name": "professor-maker",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "프로페서 메이커 — 대학원생 육성 시뮬레이션. by 연구빼고다재밌어",
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "sim": "tsx scripts/simulate.ts",
+    "gen": "node scripts/generate-character.mjs",
+    "gen-bgm": "node scripts/generate-bgm.mjs"
+  },
+  "dependencies": {
+    "howler": "^2.2.4",
+    "i18next": "^23.15.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.0.0",
+    "zod": "^3.23.8",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/howler": "^2.2.11",
+    "@types/node": "^25.5.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.0",
+    "vitest": "^2.0.5"
+  }
+}

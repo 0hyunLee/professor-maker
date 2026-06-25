@@ -1,0 +1,68 @@
+{
+  "actions": [
+    {
+      "id": "read_paper",
+      "label": "논문 읽기",
+      "icon": "📖",
+      "category": "research",
+      "effects": { "research": 8, "stamina": -5, "mental": -3, "english": 2 },
+      "note": "영어 <20시 효율 반감"
+    },
+    {
+      "id": "experiment",
+      "label": "실험/코딩",
+      "icon": "🧪",
+      "category": "research",
+      "effects": { "research": 12, "stamina": -8, "mental": -6 },
+      "note": "체력 <20시 실패 확률 20%"
+    },
+    {
+      "id": "prof_meeting",
+      "label": "교수 미팅",
+      "icon": "👨‍🏫",
+      "category": "social",
+      "effects": { "research": 3, "stamina": -2, "mental": -6, "network": 8, "chores": 4 },
+      "note": "인맥+연구 동시. 랜덤 이벤트 트리거 高"
+    },
+    {
+      "id": "admin_chores",
+      "label": "잡일(행정)",
+      "icon": "📋",
+      "category": "money",
+      "effects": { "research": 2, "stamina": -4, "mental": -5, "network": 2, "chores": 10, "money": 30000 },
+      "note": "잡일도 연구에 조금 기여. 조교화 누적"
+    },
+    {
+      "id": "exercise",
+      "label": "운동",
+      "icon": "🏃",
+      "category": "self",
+      "effects": { "research": -2, "stamina": 15, "mental": 8, "network": 1, "money": -5000 },
+      "note": "멘탈 회복 핵심"
+    },
+    {
+      "id": "tutoring",
+      "label": "과외 알바",
+      "icon": "💼",
+      "category": "money",
+      "effects": { "research": -3, "stamina": -6, "mental": -4, "english": 1, "money": 200000 },
+      "note": "돈 엔딩 진입로"
+    },
+    {
+      "id": "english_study",
+      "label": "영어공부",
+      "icon": "🌐",
+      "category": "research",
+      "effects": { "research": 1, "stamina": -3, "mental": -4, "english": 10, "money": -10000 },
+      "note": "해외이민 게이트"
+    },
+    {
+      "id": "drinking",
+      "label": "술자리",
+      "icon": "🍻",
+      "category": "social",
+      "effects": { "research": -5, "stamina": -10, "mental": 12, "network": 8, "money": -40000 },
+      "note": "선배 도망 이벤트 조건"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "title": "🎓 프로페서 메이커",
+  "semester": "{{n}}학기",
+  "week": "{{n}}주차",
+  "slots_left": "슬롯 {{n}}/3",
+  "section_stats": "스탯",
+  "section_actions": "이번 주 행동 (남은 슬롯: {{n}}/3)",
+  "section_log": "📜 일지",
+  "btn_next_week": "다음 주로 →",
+  "btn_restart": "처음부터",
+  "btn_again": "다시 시작",
+  "ending_tier": "[{{tier}} ENDING]",
+  "welcome": "🎓 입학을 환영합니다. 당신의 대학원 생활이 시작됩니다.",
+  "semester_start": "📅 {{n}}학기 시작.",
+  "graduation": "🎓 졸업 시즌이 도래했다…",
+  "mental_break": "🧠 멘탈 붕괴: 정신을 차리고 보니 한 주가 지나 있었다."
+}
